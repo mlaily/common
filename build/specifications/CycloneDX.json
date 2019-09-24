@@ -1,0 +1,49 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nuke-build/nuke/master/source/Nuke.CodeGeneration/schema.json",
+  "references": [
+    "https://github.com/CycloneDX/cyclonedx-dotnet/blob/master/README.md"
+  ],
+  "name": "CycloneDX",
+  "officialUrl": "https://cyclonedx.org/",
+  "help": "CycloneDX is a lightweight software bill-of-material (SBOM) specification designed for use in application security contexts and supply chain component analysis.",
+  "packageId": "CycloneDX",
+  "packageExecutable": "CycloneDX.dll",
+  "tasks": [
+    {
+      "settingsClass": {
+        "properties": [
+          {
+            "name": "Path",
+            "type": "string",
+            "format": "{value}",
+            "help": "The path to a .sln, .csproj, .vbproj, or packages.config file or the path to a directory which will be recursively analyzed for packages.config files."
+          },
+          {
+            "name": "OutputDirectory",
+            "type": "string",
+            "format": "--out {value}",
+            "help": "The directory to write bom.xml"
+          },
+          {
+            "name": "AlternativeNuGetUrl",
+            "type": "string",
+            "format": "--url {value}",
+            "help": "Alternative NuGet repository URL to v3-flatcontainer API (a trailing slash is required)."
+          },
+          {
+            "name": "Recursive",
+            "type": "bool",
+            "format": "--recursive",
+            "help": "To be used with a single project file, it will recursively scan project references of the supplied .csproj."
+          },
+          {
+            "name": "NoSerialNumber",
+            "type": "bool",
+            "format": "--noSerialNumber",
+            "help": "Optionally omit the serial number from the resulting BOM."
+          }
+        ]
+      }
+    }
+  ]
+}
